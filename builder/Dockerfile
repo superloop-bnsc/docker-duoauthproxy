@@ -1,4 +1,9 @@
 FROM centos:7.9.2009
+
+RUN sed -i -e 's/^mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Base.repo
+RUN sed -i -e 's/^#baseurl=http:\/\/mirror./baseurl=https:\/\/vault./g' /etc/yum.repos.d/CentOS-Base.repo
+
+
 RUN \
     yum install -y \
       bash \
